@@ -137,7 +137,7 @@ public class NpcSpawnTable {
 					l1spawn.setName(l1npc.get_name());
 					l1spawn.init();
 					spawnCount += l1spawn.getAmount();
-					_spawntable.put(new Integer(l1spawn.getId()), l1spawn);
+					_spawntable.put(l1spawn.getId(), l1spawn);
 					if (l1spawn.getId() > _highestId) {
 						_highestId = l1spawn.getId();
 					}
