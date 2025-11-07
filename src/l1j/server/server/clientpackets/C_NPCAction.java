@@ -3960,6 +3960,10 @@ public class C_NPCAction extends ClientBasePacket {
 	}
 
 	private String enterHauntedHouse(L1PcInstance pc) {
+		if (!pc.getInventory().consumeItem(40308, 1000)) {
+			pc.sendPackets(new S_ServerMessage(189));
+			return "";
+		}
 		if (L1HauntedHouse.getInstance().getHauntedHouseStatus() == L1HauntedHouse.STATUS_PLAYING) { //
 			pc.sendPackets(new S_ServerMessage(1182));
 			return "";
