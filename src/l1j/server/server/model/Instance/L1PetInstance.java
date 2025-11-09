@@ -28,6 +28,7 @@ import l1j.server.server.templates.L1Npc;
 import l1j.server.server.templates.L1Pet;
 import l1j.server.server.templates.L1PetItem;
 import l1j.server.server.templates.L1PetType;
+import l1j.server.server.utils.IntRange;
 
 public class L1PetInstance extends L1NpcInstance {
 
@@ -224,12 +225,13 @@ public class L1PetInstance extends L1NpcInstance {
 			setDead(true);
 			getMap().setPassable(getLocation(), true);
 			broadcastPacket(new S_DoActionGFX(getId(), ActionCodes.ACTION_Die));
-		}
+            _petMaster.sendPackets(new S_PetPack(this, _petMaster));
 
-		try {
-			save();
-		} catch (Exception e) {
-			_log.error(e.getLocalizedMessage(), e);
+            try {
+                save();
+            } catch (Exception e) {
+                _log.error(e.getLocalizedMessage(), e);
+            }
 		}
 	}
 
@@ -268,12 +270,24 @@ public class L1PetInstance extends L1NpcInstance {
 			return;
 		}
 
-		L1PcInstance pc = (L1PcInstance) getMaster();
 		setExp(getExp() - exp);
 		setLevel(ExpTable.getLevelByExp(getExp()));
 		setExpPercent(ExpTable.getExpPercentage(getLevel(), getExp()));
-		pc.sendPackets(new S_PetPack(this, pc));
+
+        int gap = getLevel() - oldLevel;
+        if (gap < 0) {
+            levelDown(gap);
+        }
 	}
+
+    private void levelDown(int gap) {
+        IntRange hpUpRange = getPetType().getHpUpRange();
+        IntRange mpUpRange = getPetType().getMpUpRange();
+        for (int i = 0; i > gap; i--) {
+            addMaxHp(-hpUpRange.randomValue());
+            addMaxMp(-mpUpRange.randomValue());
+        }
+    }
 
 	public void evolvePet(int new_itemobjid) {
 		L1Pet l1pet = PetTable.getInstance().getTemplate(_itemObjId);
