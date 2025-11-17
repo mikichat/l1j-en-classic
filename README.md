@@ -1,113 +1,59 @@
-# l1j-en
+# l1j-en 🐉
 
-l1j-en is an English-language server emulator for the South Korean MMORPG,
-Lineage 1.  It targets feature-complete support for the final 2009 US client.
+l1j-en은 한국의 MMORPG인 리니지 1을 위한 영어권 서버 에뮬레이터입니다. 2009년 최종 미국 클라이언트에 대한 완전한 기능 지원을 목표로 합니다.
 
-See the project documentation on the
-[l1j-en project wiki](https://github.com/l1j-en/classic/wiki) for general
-project info, the client connector, FAQ, and the setup guide.
+일반적인 프로젝트 정보, 클라이언트 커넥터, FAQ 및 설정 가이드는 [l1j-en 프로젝트 위키](https://github.com/l1j-en/classic/wiki)의 프로젝트 문서를 참조하세요.
 
-If you need any help, contact our
-[mailing list](https://groups.google.com/forum/#!forum/l1j-en) or hop on the
-channel #l1j on Freenode IRC.
+❓ 도움이 필요하시면 [메일링 리스트](https://groups.google.com/forum/#!forum/l1j-en)에 문의하시거나 Freenode IRC의 #l1j 채널에 참여하세요.
 
-### Project History
+### 프로젝트 연혁 📜
 
-**Pre-history**
+**선사 시대**
 
-Prior to l1j-jp, history is somewhat problematic.  Several people claim they
-are the original creators.  Hard proof has been lacking. Plus so many years,
-revisions and changes have gone by, its relevancy may be questionable.  There
-was a barely functional project called LoSe that is possibly the parent of all
-l1j projects.
+l1j-jp 이전의 역사는 다소 문제가 있습니다. 여러 사람이 자신이 최초 제작자라고 주장하지만, 확실한 증거는 부족합니다. 또한 수많은 세월이 흐르고 수정과 변경이 이루어져 그 관련성이 의심스러울 수 있습니다. 모든 l1j 프로젝트의 부모일 가능성이 있는 LoSe라는 거의 작동하지 않는 프로젝트가 있었습니다.
 
-**Pre-l1j-en**
+**l1j-en 이전**
 
-This code base was originally a fork of
-[l1j-jp](https://code.google.com/archive/p/l1j-jp/) named
-[lindc](https://code.google.com/archive/p/lindc/) translated to English with
-stability and security improvements. An important goal was to leave the code as
-similar/compatibile with l1j-jp as possible so we could take advantage of their
-content updates.  They had a larger team and progressed further/faster on that
-than we did.
+이 코드 베이스는 원래 [l1j-jp](https://code.google.com/archive/p/l1j-jp/)의 포크로, 안정성과 보안을 개선하여 영어로 번역된 [lindc](https://code.google.com/archive/p/lindc/)라는 이름이었습니다. 중요한 목표는 l1j-jp의 콘텐츠 업데이트를 활용할 수 있도록 코드를 최대한 l1j-jp와 유사/호환되게 유지하는 것이었습니다. 그들은 더 큰 팀을 가지고 있었고 우리보다 그 부분에서 더 빠르고 멀리 진행했습니다.
 
-**l1j-en created**
+**l1j-en 생성**
 
-Around Oct, 2008 the project was renamed to l1j-en to detach it from any
-particular server.  Sometime in l1j-en's early life we began pulling in updates
-from l1j-jp2 as well.  jp2 was actually located on l1j.org at that time.
+2008년 10월경, 특정 서버와 분리하기 위해 프로젝트 이름이 l1j-en으로 변경되었습니다. l1j-en의 초창기 어느 시점부터 l1j-jp2의 업데이트도 가져오기 시작했습니다. 당시 jp2는 l1j.org에 있었습니다.
 
-In 2014 the project slowly transitioned to git (on GitHub), away from SVN and
-Google Code. Github has since removed the repo that was located there.
+2014년에 프로젝트는 SVN과 Google Code에서 벗어나 점차 git(GitHub)으로 전환되었습니다. 이후 Github는 그곳에 있던 저장소를 제거했습니다.
 
-From 2014 to 2018 the code base has entered many periods of dormancy.  Work began
-in earnest again to bring up the zelgo server. Several old and new
-members of the project have randomly come and gone over that time period.
+2014년부터 2018년까지 코드 베이스는 여러 차례 휴면기에 들어갔습니다. zelgo 서버를 다시 가동하기 위한 작업이 본격적으로 시작되었습니다. 그 기간 동안 여러 기존 및 신규 프로젝트 멤버들이 무작위로 오고 갔습니다.
 
-**Move to l1j.org**
+**l1j.org로 이전**
 
-In 2018 we moved to l1j.org and worked on cleaning things up, optimizing things
-and sticking to the original open source principles of the project.  Code
-compatibility with other l1j projects was no longer considered a priority,
-allowing us to plug all known security holes that would plague high population
-public servers.
+2018년에 우리는 l1j.org로 이전하여 코드를 정리하고 최적화하며 프로젝트의 원래 오픈 소스 원칙을 고수하는 작업을 했습니다. 다른 l1j 프로젝트와의 코드 호환성은 더 이상 우선순위로 고려되지 않았으며, 이를 통해 인구 밀도가 높은 공개 서버를 괴롭히던 모든 알려진 보안 허점을 막을 수 있었습니다.
 
-**Last US version compatibility complete**
+**최종 미국 버전 호환성 완료** ✅
 
-As of late 2019, the milestone 10 DB build was published, along with new build
-scripts that work with Java 9 and higher (Java <8 support has been deprecated
-accordingly).  We generally recommend running it on JDK 11 LTS, but others >8
-should work.  With the majority of major issues addressed, the development team
-considers this project in a stable state and fully usable for classic client
-servers.
+2019년 말, 마일스톤 10 DB 빌드가 게시되었으며, Java 9 이상에서 작동하는 새로운 빌드 스크립트도 함께 제공되었습니다 (Java 8 미만 지원은 그에 따라 중단되었습니다). 일반적으로 JDK 11 LTS에서 실행하는 것을 권장하지만, 8보다 높은 다른 버전도 작동합니다. 주요 문제 대부분이 해결됨에 따라 개발팀은 이 프로젝트가 안정적인 상태에 있으며 클래식 클라이언트 서버에 완전히 사용 가능하다고 간주합니다.
 
-**Current status**
+**현재 상태** ✨
 
-As of 2020-07-04, this repository has been moved back to GitHub, with any legal
-concerns addressed (see legal section).  We've also funded a legal retainer
-agreement should the need arise.  In the unlikely event this repo is moved
-again, an announcement on the project's group forum will be posted.
+2020년 7월 4일부로 이 저장소는 GitHub로 다시 이전되었으며, 모든 법적 문제는 해결되었습니다 (법률 섹션 참조). 또한 필요할 경우를 대비해 법률 자문 계약을 위한 비용도 마련했습니다. 만일 이 저장소가 다시 이전되는 드문 경우가 발생하면 프로젝트의 그룹 포럼에 공지가 게시될 것입니다.
 
-Along with the above, we have also started a branch of this codebase that is
-compatible with the feature set of 3.63, due to much popular demand (mainly
-enabling the higher resolution clients).  This is already in a usable state,
-and we are closing the gap on new features to get it of comparable quality to
-what's in the master branch.  Do a checkout against branch `363` to use this.
+위와 더불어, 많은 대중의 요구(주로 더 높은 해상도의 클라이언트 활성화)에 부응하여 3.63의 기능 세트와 호환되는 이 코드베이스의 브랜치를 시작했습니다. 이것은 이미 사용 가능한 상태이며, 마스터 브랜치에 있는 것과 비슷한 품질로 만들기 위해 새로운 기능의 격차를 줄이고 있습니다. 이를 사용하려면 `363` 브랜치를 체크아웃하세요.
 
-### Legal
+### 법률 ⚖️
 
-No one behind this project offers an opinion on the legality of running a
-private server.  This project only covers just the codebase and ancillary
-documentation you see here.  l1j-en itself is devoid of any information gleaned
-directly from the client.  This is a "clean room" implementation of a server
-compatible with various clients, all implementing long abandoned versions of
-game feature sets.
+이 프로젝트의 누구도 개인 서버 운영의 합법성에 대한 의견을 제시하지 않습니다. 이 프로젝트는 여기에 보이는 코드베이스와 부수적인 문서만을 다룹니다. l1j-en 자체에는 클라이언트에서 직접 얻은 정보가 전혀 없습니다. 이것은 다양한 클라이언트와 호환되는 서버의 "클린 룸" 구현이며, 모두 오래전에 버려진 게임 기능 세트를 구현합니다.
 
-None of the contributors to this project are or have in the past been customers
-of the original creators of Lineage, and are therefore not beholden to any
-EULAs a customer must agree to.  Despite this, we intentionally to not touch
-the official client, only making use of custom-built headless clients and
-therefore run no proprietary software in the development process.  A side goal
-of this team is to create various clients that can be used with this server,
-and these are the only methods of play that are officially endorsed here.
+이 프로젝트의 기여자 중 누구도 리니지의 원 제작사의 고객이었거나 현재 고객이 아니므로, 고객이 동의해야 하는 EULA에 구속되지 않습니다. 그럼에도 불구하고, 우리는 공식 클라이언트를 의도적으로 건드리지 않으며, 맞춤형으로 제작된 헤드리스 클라이언트만을 사용하여 개발 과정에서 독점 소프트웨어를 실행하지 않습니다. 이 팀의 부수적인 목표는 이 서버와 함께 사용할 수 있는 다양한 클라이언트를 만드는 것이며, 이것이 공식적으로 지지되는 유일한 플레이 방법입니다.
 
-As such, we will not accept contributions that potentially violate
-copyright/trademark law.
+따라서 저작권/상표법을 위반할 가능성이 있는 기여는 받지 않을 것입니다.
 
-### Contributing
+### 기여하기 🤝
 
-Report issues and suggest features and improvements on the
-[l1j.org issue tracker](https://github.com/l1j-en/classic/issues). Discussions and questions
-should go to the mailing list and IRC channel.
+[l1j.org 이슈 트래커](https://github.com/l1j-en/classic/issues)에서 문제를 보고하고 기능 및 개선 사항을 제안하세요. 토론과 질문은 메일링 리스트와 IRC 채널로 보내주세요.
 
-Pull requests are always welcome!  For those migrating to Git from SVN, see the
-[DEVGUIDE](DEVGUIDE.md).
+풀 리퀘스트는 언제나 환영합니다! 🎉 SVN에서 Git으로 마이그레이션하는 분들은 [DEVGUIDE](DEVGUIDE.md)를 참조하세요.
 
-Those interested in joining the development effort as a team member should feel
-free to let us know, preferably on the IRC channel.  We always need additional
-help with programming, Lineage 1 domain knowledge (particularly with newer
-game content), and documentation.
+팀원으로서 개발 노력에 참여하는 데 관심이 있는 분들은 언제든지 알려주시기 바랍니다. 가급적 IRC 채널을 통해 알려주세요. 우리는 항상 프로그래밍, 리니지 1 도메인 지식(특히 최신 게임 콘텐츠 관련), 그리고 문서화에 대한 추가적인 도움이 필요합니다.
 
-### License
+### 라이선스 📄
 
-Distributed under the GNU General Public License, version 2.
+GNU 일반 공중 사용 허가서 버전 2에 따라 배포됩니다.
