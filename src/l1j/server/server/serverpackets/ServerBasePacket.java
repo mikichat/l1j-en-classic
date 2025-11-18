@@ -73,7 +73,7 @@ public abstract class ServerBasePacket {
 	protected void writeS(String text) {
 		try {
 			if (text != null) {
-				_bao.write(text.getBytes("UTF-8"));
+				_bao.write(text.getBytes("EUC-KR"));
 			}
 		} catch (Exception e) {
 			_log.error(e.getLocalizedMessage(), e);
