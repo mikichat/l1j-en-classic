@@ -371,10 +371,6 @@ public class Client implements Runnable, PacketOutput {
 			if (data != null) {
 				opcode = data[0] & 0xFF;
 
-			    if (opcode == 0) {
-			        _log.warn("[OPCODE_0_DEBUG] Received opcode 0. Packet length: " + data.length);
-			    }
-
 				// if they're clicking "OK" on the common news sent for a ban or ip restriction,
 				// then kick them
 				if (opcode == Opcodes.C_OPCODE_COMMONCLICK && this.getDisconnectNextClick()) {

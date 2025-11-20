@@ -171,6 +171,7 @@ public class C_ItemUSe extends ClientBasePacket {
 
 	public C_ItemUSe(byte abyte0[], Client client) throws Exception {
 		super(abyte0);
+		_log.error("[[[ C_ItemUse PACKET RECEIVED ]]]");
 		int itemObjid = readD();
 
 		L1PcInstance pc = client.getActiveChar();
