@@ -53,6 +53,7 @@ public class C_MoveChar extends ClientBasePacket {
 		int locx = readH();
 		int locy = readH();
 		int heading = readC();
+		_log.info(String.format("[MOVE] Raw locx=%d, locy=%d, heading=%d, lang=%d", locx, locy, heading, CLIENT_LANGUAGE));
 
 		L1PcInstance pc = client.getActiveChar();
 		
@@ -91,8 +92,10 @@ public class C_MoveChar extends ClientBasePacket {
 		}
 		pc.getMap().setPassable(pc.getLocation(), true);
 
-		if (CLIENT_LANGUAGE == 3 || CLIENT_LANGUAGE == 1) { // Taiwan and Korea Only
+		if (CLIENT_LANGUAGE == 3) { // Taiwan Only
+			_log.info(String.format("[TAIWAN_MOVE] Original heading: %d", heading));
 			heading ^= 0x49;
+			_log.info(String.format("[TAIWAN_MOVE] New heading: %d", heading));
 			locx = pc.getX();
 			locy = pc.getY();
 		}
