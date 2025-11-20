@@ -91,7 +91,7 @@ public class C_MoveChar extends ClientBasePacket {
 		}
 		pc.getMap().setPassable(pc.getLocation(), true);
 
-		if (CLIENT_LANGUAGE == 3) { // Taiwan Only
+		if (CLIENT_LANGUAGE == 3 || CLIENT_LANGUAGE == 1) { // Taiwan and Korea Only
 			heading ^= 0x49;
 			locx = pc.getX();
 			locy = pc.getY();
