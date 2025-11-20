@@ -66,7 +66,6 @@ import l1j.server.server.serverpackets.ServerBasePacket;
 import l1j.server.server.types.UByte8;
 import l1j.server.server.types.UChar8;
 import l1j.server.server.utils.SystemUtil;
-import l1j.server.server.utils.ByteArrayUtil;
 
 public class Client implements Runnable, PacketOutput {
 
@@ -374,7 +373,6 @@ public class Client implements Runnable, PacketOutput {
 
 			    if (opcode == 0) {
 			        _log.warn("[OPCODE_0_DEBUG] Received opcode 0. Packet length: " + data.length);
-			        _log.warn("[OPCODE_0_DEBUG] Packet data: " + new ByteArrayUtil(data).dumpToString());
 			    }
 
 				// if they're clicking "OK" on the common news sent for a ban or ip restriction,
