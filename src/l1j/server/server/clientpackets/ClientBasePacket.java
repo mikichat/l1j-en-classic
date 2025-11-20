@@ -23,6 +23,7 @@ import java.nio.ByteBuffer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import l1j.server.Config;
 import l1j.server.server.network.Client;
 
 public abstract class ClientBasePacket {
@@ -90,7 +91,7 @@ public abstract class ClientBasePacket {
 				}
 			}
 			if (term > -1) {
-				s = new String(_decrypt, _off, term - _off, "EUC-KR");
+				s = new String(_decrypt, _off, term - _off, Config.CLIENT_LANGUAGE_CODE);
 				_off = term + 1;
 			}
 		} catch (Exception e) {

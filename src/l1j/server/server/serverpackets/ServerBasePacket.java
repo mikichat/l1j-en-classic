@@ -24,6 +24,8 @@ import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import l1j.server.Config;
+
 public abstract class ServerBasePacket {
 
 	private static Logger _log = LoggerFactory.getLogger(ServerBasePacket.class
@@ -73,7 +75,7 @@ public abstract class ServerBasePacket {
 	protected void writeS(String text) {
 		try {
 			if (text != null) {
-				_bao.write(text.getBytes("EUC-KR"));
+				_bao.write(text.getBytes(Config.CLIENT_LANGUAGE_CODE));
 			}
 		} catch (Exception e) {
 			_log.error(e.getLocalizedMessage(), e);

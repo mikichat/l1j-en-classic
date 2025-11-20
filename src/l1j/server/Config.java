@@ -66,6 +66,10 @@ public final class Config {
 
 	public static int CLIENT_LANGUAGE;
 
+	public static String CLIENT_LANGUAGE_CODE;
+
+	private static final String[] LANGUAGE_CODE_ARRAY = { "UTF8", "EUCKR", "UTF8", "BIG5", "SJIS", "GBK" };
+
 	public static boolean HOSTNAME_LOOKUPS;
 
 	public static int AUTOMATIC_KICK;
@@ -635,6 +639,16 @@ public final class Config {
 					serverSettings.getProperty("GeneralThreadPoolSize", "0"),
 					10);
 			TIME_ZONE = serverSettings.getProperty("TimeZone", "EST");
+
+			CLIENT_LANGUAGE = Integer.parseInt(serverSettings.getProperty("ClientLanguage", "4"));
+			try {
+				CLIENT_LANGUAGE_CODE = LANGUAGE_CODE_ARRAY[CLIENT_LANGUAGE];
+			} catch (ArrayIndexOutOfBoundsException e) {
+				_log.warn("Invalid ClientLanguage set in server.properties. Defaulting to 4 (SJIS).");
+				CLIENT_LANGUAGE = 4;
+				CLIENT_LANGUAGE_CODE = LANGUAGE_CODE_ARRAY[CLIENT_LANGUAGE];
+			}
+
 			HOSTNAME_LOOKUPS = Boolean.parseBoolean(serverSettings.getProperty(
 					"HostnameLookups", "False"));
 			AUTOMATIC_KICK = Integer.parseInt(serverSettings.getProperty(
