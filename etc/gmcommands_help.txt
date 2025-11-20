@@ -1,318 +1,323 @@
-	This file will explain the usage of EVERY GM command in the SVN's server.  If you have any questions please post them on the forum or in the Dev Site somewhere, new ticket or what not.  These are in the order they are listed in the GM commands statments.
+이 파일은 SVN 서버의 모든 GM 명령어 사용법을 설명합니다. 질문이 있으시면 포럼이나 개발자 사이트, 새 티켓 등으로 문의해주세요. GM 명령어 목록 순서대로 정렬되어 있습니다.
 
 
 
 
-• General Commands
+• 일반 명령어
 
-	.account <accountname> {
-Shows the characters that account contains.
+	.account <계정명> {
+해당 계정에 포함된 캐릭터들을 보여줍니다.
 }
 
-	.f <parameters> {
-Unknown. Something to do with "favourites".
+	.f <파라미터> {
+알 수 없음. "즐겨찾기"와 관련된 기능으로 추정됩니다.
 }
 
-	.gotobug <bugID> {
-Takes you to the place a bug was reported (where the player stood while writing the bugreport).
+	.gotobug <버그ID> {
+버그가 보고된 장소(플레이어가 버그 리포트를 작성할 때 서 있던 곳)로 이동합니다.
 }
 
 	.help {
-Shows the help lines in the chat screen.
+채팅창에 도움말 라인을 보여줍니다.
 }
 
 	.hpbar {
-When toggled you will see HP bars over ALL things that have HPs in the server. Use it again to turn it off.
+이 명령어를 사용하면 서버 내 HP를 가진 모든 대상 위에 HP 바가 표시됩니다. 다시 사용하면 꺼집니다.
 }
 
 	.loc {
-Will give you the X, Y and MapID you are currently at.
+현재 위치의 X, Y 좌표와 MapID를 알려줍니다.
 }
 
-	.r (parameters) {
-Does the last command again with the parameters sent to .r
+	.r (파라미터) {
+.r에 전달된 파라미터로 마지막 명령어를 다시 실행합니다.
 }
 
-	.resolve <bugID> {
-Marks bug with the specified bugID as resolved.
+	.resolve <버그ID> {
+지정된 버그ID의 버그를 해결됨으로 표시합니다.
 }
 
 	.showtrap {
-Will let you see all traps. Use again to deactivate.
+모든 함정을 볼 수 있게 해줍니다. 다시 사용하면 비활성화됩니다.
 }
 
-	.viewbug (bugID) {
-View bug with the specified bugID. If no bugID is specified it will list all the unresolved bugs in the server.
+	.viewbug (버그ID) {
+지정된 버그ID의 버그를 봅니다. 버그ID가 지정되지 않으면 서버의 모든 미해결 버그 목록을 보여줍니다.
 }
 
-	.who (playername) {
-Will show you a list of all players online, their name, level and account name. If used with a playername you will get information about that character.
-}
-
-
-
-
-• Commands to manage players on your server:
-
-	.ban <playername> {
-Will kick and ban a players account and IPAdress.
-}
-
-	.banip <playername> {
-Most likley is case sensative, and does exactly that.  Places the IP of that player into the banip table of the DB and boots them from the server making it impossible for that IP to create an account or log onto any account on the server, untill you physically remove the IP from the badip table.
-}
-
-	.jail <playername> {
-Sends the player to jail for bad behaviour. The player cant get out from jail without GM or Monitor assistance. The place they are sent to is gmroom 1.
-}
-
-	.kill <playername> {
-Does exactly that, may or may not be case sensative.
-}
-
-	.kick <playername> {
-Same as above.
-}
-
-	.unban <accountname> {
-Will unban the accountname and the ipadress it wast using at the time of the last login.		
+	.who (플레이어명) {
+온라인 상태인 모든 플레이어의 목록과 그들의 이름, 레벨, 계정명을 보여줍니다. 플레이어명을 함께 사용하면 해당 캐릭터에 대한 정보를 얻습니다.
 }
 
 
 
 
-• Commands that has to do with teleporting:
+• 서버 내 플레이어 관리 명령어:
 
-	.allrecall { 
-Will teleport everyone on the server to you.
+	.ban <플레이어명> {
+플레이어의 계정과 IP 주소를 추방하고 차단합니다.
 }
 
-	.gmroom <number 1-5 or room name> {
-This command will take you to the specified location.  Room names can be found in the gmcommands.xml file in your config folder.
+	.banip <플레이어명> {
+대소문자를 구분할 가능성이 높으며, 이름 그대로 작동합니다. 해당 플레이어의 IP를 DB의 banip 테이블에 추가하고 서버에서 추방하여, 해당 IP로는 계정을 생성하거나 서버의 어떤 계정으로도 로그인할 수 없게 만듭니다. banip 테이블에서 직접 IP를 제거해야만 해제됩니다.
 }
 
-	.goto <playername> {
-Will teleport you to the player specified.
+	.jail <플레이어명> {
+잘못된 행동을 한 플레이어를 감옥으로 보냅니다. 플레이어는 GM이나 모니터의 도움 없이는 감옥에서 나올 수 없습니다. 보내지는 장소는 gmroom 1입니다.
+}
+
+	.kill <플레이어명> {
+이름 그대로 플레이어를 죽입니다. 대소문자를 구분할 수도 있고 아닐 수도 있습니다.
+}
+
+	.kick <플레이어명> {
+위와 동일합니다. 플레이어를 서버에서 추방합니다.
+}
+
+	.unban <계정명> {
+해당 계정명과 마지막 로그인 시 사용했던 IP 주소의 차단을 해제합니다.
+}
+
+
+
+
+• 텔레포트 관련 명령어:
+
+	.allrecall {
+서버에 있는 모든 사람을 당신에게로 텔레포트시킵니다.
+}
+
+	.gmroom <1-5 사이의 숫자 또는 방 이름> {
+지정된 장소로 당신을 이동시킵니다. 방 이름은 config 폴더의 gmcommands.xml 파일에서 찾을 수 있습니다.
+}
+
+	.goto <플레이어명> {
+지정된 플레이어에게로 텔레포트합니다.
 }
 
 	.precall {
-This command will teleport all your party members to you.
+당신의 모든 파티 멤버를 당신에게로 텔레포트시킵니다.
 }
 
-	.recall <playername> { 
-Will teleport that player to you.
+	.recall <플레이어명> {
+해당 플레이어를 당신에게로 텔레포트시킵니다.
 }
 
-	.tele <x coord> <y coord> <mapID> {
-This command will move you to the desired X, Y, MapID you specify.
+	.tele <x 좌표> <y 좌표> <mapID> {
+지정한 X, Y, MapID의 원하는 위치로 당신을 이동시킵니다.
 }
 
 
 
 
-• Commands to alter yourself or other players:
+• 자신 또는 다른 플레이어 변경 명령어:
 
 	.addskill {
-Adds all skills that your class would normally be able to learn.
+당신의 클래스가 정상적으로 배울 수 있는 모든 스킬을 추가합니다.
 }
 
-	.buff <number> {
-Should buff everyone on the same screen with the skill corresponding to the number.
+	.buff <숫자> {
+같은 화면에 있는 모든 사람에게 해당 숫자와 일치하는 스킬로 버프를 줍니다.
 }
 
-	.buffme <number> {
-Should buff you with the skill corresponding to the number.
+	.buffme <숫자> {
+당신에게 해당 숫자와 일치하는 스킬로 버프를 줍니다.
 }
 
-	.change <playername> <option> <ammount>  {
-Player name is case sensative I believe.  Option can be one of these [hp, mp, ac, mr, gm, hit, dmg, lawful and karma] ammount is what to change it to.
+	.change <플레이어명> <옵션> <수량> {
+플레이어 이름은 대소문자를 구분하는 것으로 보입니다. 옵션은 [hp, mp, ac, mr, gm, hit, dmg, lawful, karma] 중 하나일 수 있으며, 수량은 변경할 값입니다.
 }
 
 	.hometown {
-Will take you to your registered hometown if you have registered to one.
+등록했다면 당신이 등록한 고향으로 이동합니다.
 }
 
 	.invis {
-Makes you invisible.
+당신을 투명하게 만듭니다.
 }
 
-	.level <desired level> {
-Desired level is exactly that, the lvl you would like to make yourself between 1 and 99.
+	.level <원하는 레벨> {
+원하는 레벨은 말 그대로 당신이 되고 싶은 레벨이며, 1에서 99 사이입니다.
 }
 
-	.poly <playername> <polyID> {
-This will poly the specified player into the specified polyID.  Poly ID's can be found either in the polymorph table, OR the graphicID of the monster in the npc table.
+	.poly <플레이어명> <polyID> {
+지정된 플레이어를 지정된 polyID로 변신시킵니다. Poly ID는 polymorph 테이블이나 npc 테이블의 몬스터 graphicID에서 찾을 수 있습니다.
 }
 
 	.show {
-Makes you visible again.
+당신을 다시 보이게 합니다.
 }
 
 	.speed {
-Uses haste and brave on your character.
+당신의 캐릭터에 헤이스트와 브레이브를 사용합니다.
 }
 
-	.silence <playername> <amount in minuets> {
-Pretty self explanitory.  will chat ban the specified player for the specified ammount of time in min's.
+	.silence <플레이어명> <분 단위 시간> {
+설명이 필요 없을 정도로 명확합니다. 지정된 플레이어의 채팅을 지정된 시간(분) 동안 금지합니다.
 }
 
 
 
 
-• Commands for items:
+• 아이템 관련 명령어:
 
-	.create <itemID> <enchant lvl> <ammount> {
-This command creates the item that matches the itemID with the specified enchant lvl, and in the ammount you specify in YOUR inventory only. Adena is itemID 40308
+	.create <itemID> <인챈트 레벨> <수량> {
+지정된 인챈트 레벨과 수량으로 itemID와 일치하는 아이템을 당신의 인벤토리에만 생성합니다. 아데나의 itemID는 40308입니다.
 }
 
-	.find <text> {
-Searches items, NPCs and polymorphs for the text and displays the results along with the IDs for the results. (for use with .create, .poly and .spawn/.summon)
+	.find <텍스트> {
+아이템, NPC, 폴리모프에서 텍스트를 검색하고 결과와 함께 해당 결과의 ID를 표시합니다. (.create, .poly, .spawn/.summon 명령어와 함께 사용됩니다)
 }
 
 	.item <itemID> {
-Displays what monsters can drop that item and how big the chance is that it will drop it on one given dropchance.
+해당 아이템을 어떤 몬스터가 드롭할 수 있는지, 그리고 한 번의 드롭 기회에서 드롭될 확률이 얼마나 되는지 표시합니다.
 }
 
-	.itemset <set to make> {
-The exact wording for the set can be found in the gmcommands.xml file in your Config folder.
+	.itemset <만들 세트> {
+세트의 정확한 이름은 Config 폴더의 gmcommands.xml 파일에서 찾을 수 있습니다.
 }
 
-	.present <accountname> <itemid> <enchant> <ammount> {
-Works like the item command only it places the item into the warehouse of the specified account.
+	.present <계정명> <itemid> <인챈트> <수량> {
+item 명령어처럼 작동하지만, 지정된 계정의 창고에 아이템을 넣습니다.
 }
 
 
 
 
-• Commands for NPCs:
+• NPC 관련 명령어:
 
 	.mob <npcID> {
-Displays some info about that NPC as well as what items that npc can drop and how big the chance is that it will drop it on one given dropchance.
+해당 NPC에 대한 정보와 함께 어떤 아이템을 드롭할 수 있는지, 그리고 한 번의 드롭 기회에서 드롭될 확률이 얼마나 되는지 표시합니다.
 }
 
-	.mobspawn <mobID> <ammount> <radius> {
-This will do the same as spawn command but only for Monsters and it will add's it as a spawn to the DB permanently.
+	.mobspawn <mobID> <수량> <반경> {
+spawn 명령어와 동일하게 작동하지만 몬스터에게만 해당되며, DB에 영구적으로 스폰을 추가합니다.
 }
 
-	.npcspawn <mobID> <ammount> <radius> {
-Same as mobspawn only for NPC(non aggressive) only.
+	.npcspawn <mobID> <수량> <반경> {
+mobspawn과 동일하지만 NPC(비공격적)에게만 해당됩니다.
 }
 
-	.pet <mobID> (level) {
-Will create a pet with that mobID and give you the collar to it.
+	.pet <mobID> (레벨) {
+해당 mobID를 가진 펫을 생성하고 그 목걸이를 당신에게 줍니다.
 }
 
-	.spawn <mobID> <ammount> <radius> {
-MobID is the number you get from the DB.  Ammount is obvious.  Radius is how far away the monster can spawn.
-Example:
+	.spawn <mobID> <수량> <반경> {
+MobID는 DB에서 얻는 숫자입니다. 수량은 명확합니다. 반경은 몬스터가 스폰될 수 있는 거리입니다.
+예시:
 .spawn 45010 10 20
-This would spawn 10 rabbits within a 20 tile radius.
+이것은 20 타일 반경 내에 10마리의 토끼를 스폰합니다.
 }
 
 	.summon <mobID> {
-Will summon a monster with that mobID and sets it as a summon controlled by the GM.
+해당 mobID를 가진 몬스터를 소환하고 GM이 제어하는 소환수로 설정합니다.
 }
 
 
 
 
-• Commands that affect the whole server:
+• 서버 전체에 영향을 미치는 명령어:
 
 	.cleanup {
-Cleans the floor of all of the server of items that have been dropped on the ground.
+서버 바닥에 떨어진 모든 아이템을 청소합니다.
 }
 
 	.delboard <ID> {
-Deletes the message board message with that ID.
+해당 ID를 가진 게시판 메시지를 삭제합니다.
 }
 
 	.global <on/off> {
-Will turn global chat on or off.  When turned off and players try to global they get the System Message saying that the Staff has something to say and to listen up.
+전체 채팅을 켜거나 끕니다. 꺼져 있을 때 플레이어가 전체 채팅을 시도하면, 운영자가 할 말이 있으니 잘 들으라는 시스템 메시지를 받게 됩니다.
 }
 
 	.heal {
-Will heal and ress any and everyone on the server.
+서버의 모든 사람을 치유하고 부활시킵니다.
 }
 
 	.pbuff {
-Toggles the "Power Buff" setting of the server.
+서버의 "파워 버프" 설정을 켜거나 끕니다.
 }
 
-	.rates ([XP,ADENA,DROP,LAW,WEIGHT,ALL] VALUE) | RESET {
-Set the specified rate(s) for the server relative to the rates in your rates.config file. Example:
+	.rates ([XP,ADENA,DROP,LAW,WEIGHT,ALL] 값) | RESET {
+rates.config 파일의 배율을 기준으로 서버의 지정된 배율을 설정합니다. 예시:
 .rates xp 3
-This will set XP to 3 times the rate specified in your rates.config file.
-If you write ".rates reset" you will reset the rates to the ones in your rates.config file.
+이것은 rates.config 파일에 지정된 배율의 3배로 XP를 설정합니다.
+".rates reset"을 입력하면 rates.config 파일의 배율로 재설정됩니다.
 }
 
-	.shutdown <number> {
-Odd that no matter what number you specify the server still takes full 30 seconds to shut down.  And if no number is put in, it won't shut down....  But this shutdown will save the DB so there is no rollback.  This is the shutodwn to use always.
+	.shutdown <숫자> {
+어떤 숫자를 지정하든 서버가 종료되는 데 30초가 걸리는 것은 이상합니다. 그리고 숫자를 입력하지 않으면 종료되지 않습니다... 하지만 이 종료는 DB를 저장하므로 롤백이 없습니다. 항상 사용해야 하는 종료 명령어입니다.
 }
 
 	.shutdown! {
-Does exactly that, shuts down the server immediatly without saving the DB.  Chars will roll back to the last save time.
+이름 그대로, DB를 저장하지 않고 즉시 서버를 종료합니다. 캐릭터는 마지막 저장 시간으로 롤백됩니다.
 }
 
 	.!shutdown {
-Will stop a server shutdown if typed in durring countdown of a normal .shutdown command.
+일반 .shutdown 명령어의 카운트다운 중에 입력하면 서버 종료를 중지합니다.
 }
 
-	.weather <number from 1-3 and 13-16> {
-The 13 to 16 may not be right, need to look farther. Each number option will change the weather, i.e. make it snow or rain, more or less....
+	.weather <1-3 및 13-16 사이의 숫자> {
+13에서 16은 정확하지 않을 수 있으니 더 확인이 필요합니다. 각 숫자 옵션은 날씨를 변경합니다. 즉, 눈이나 비가 오게 하거나, 더 많거나 적게...
 }
 
 	.viewboard (ID) {
-Show the message board messages and their IDnumbers. If ID is specified it will display that message instead.
+게시판 메시지와 그 ID 번호를 보여줍니다. ID가 지정되면 해당 메시지를 대신 표시합니다.
 }
 
 
 
 
-• Commands for testing:
+• 테스트용 명령어:
 
 	.action <actID> {
-Displays the actid specified on you. Useful fo finding action IDs.
+당신에게 지정된 actid를 표시합니다. 액션 ID를 찾는 데 유용합니다.
 }
 
 	.c {
-Creates next item in chain. Every time you create an item with .create it will record what itemID you use and if you then use .c it will create an item with itemID+1. If you use .c after .c it will work the same way. Usefull for testing items.
+다음 아이템을 순차적으로 생성합니다. .create로 아이템을 생성할 때마다 사용한 itemID를 기록하고, 그 후에 .c를 사용하면 itemID+1인 아이템을 생성합니다. .c 다음에 .c를 사용해도 동일하게 작동합니다. 아이템 테스트에 유용합니다.
 }
 
-	.invgfxid <gfxID> <count> {
-Displays the gfxID specified on an item created in your inventory. Count 1 will create 1 item with the gfxID. count above 1 will create that many items and increase the gfxID number with one for each new item. Useful fo finding inventory graphics IDs.
+	.invgfxid <gfxID> <수량> {
+인벤토리에 생성된 아이템에 지정된 gfxID를 표시합니다. 수량 1은 gfxID를 가진 아이템 1개를 생성합니다. 1 이상의 수량은 해당 수만큼 아이템을 생성하고 새 아이템마다 gfxID 번호를 1씩 증가시킵니다. 인벤토리 그래픽 ID를 찾는 데 유용합니다.
 }
 
 	.gfxId <gfxID> {
-Displays the gfxID specified on an npc created near you. Useful fo finding graphics IDs for characters.
+당신 근처에 생성된 npc에 지정된 gfxID를 표시합니다. 캐릭터의 그래픽 ID를 찾는 데 유용합니다.
 }
 
 	.opcid <ID> {
-Unknown}
+알 수 없음
+}
 
 	.opcid1 <ID> {
-Unknown}
+알 수 없음
+}
 
 	.opcid2 <ID> {
-Unknown}
+알 수 없음
+}
 
 	.opc <ID> {
-Unknown}
+알 수 없음
+}
 
 	.opc1 <ID> {
-Unknown}
+알 수 없음
+}
 
 	.opc2 <ID> {
-Unknown
+알 수 없음
 }
 
 	.pdbug {
-Toggle the echoing of incoming packets from GMs and Monitors. Only for debugging.
+GM과 모니터로부터 들어오는 패킷의 에코잉을 켜거나 끕니다. 디버깅 전용입니다.
 }
 
 	.s {
-Creates next npc in chain. Every time you spawn an npc with .spawn it will record what npcID you use and if you then use .s it will spawn an npc with npcID+1. If you use .s after .s it will work the same way. Usefull for testing npcs.
-
-	.sprite <spriteID> {
-Displays the spriteID specified on your character. Useful fo finding sprites.
+다음 npc를 순차적으로 생성합니다. .spawn으로 npc를 스폰할 때마다 사용한 npcID를 기록하고, 그 후에 .s를 사용하면 npcID+1인 npc를 스폰합니다. .s 다음에 .s를 사용해도 동일하게 작동합니다. npc 테스트에 유용합니다.
 }
 
+	.sprite <spriteID> {
+당신의 캐릭터에 지정된 spriteID를 표시합니다. 스프라이트를 찾는 데 유용합니다.
+}
