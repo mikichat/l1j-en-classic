@@ -174,11 +174,29 @@ public class C_ItemUSe extends ClientBasePacket {
 		int itemObjid = readD();
 
 		L1PcInstance pc = client.getActiveChar();
+		if (pc == null) {
+		    return;
+		}
+		L1ItemInstance l1iteminstance = pc.getInventory().getItem(itemObjid);
+		if (l1iteminstance == null) {
+		    _log.warn(String.format("[ITEM_USE_DEBUG] PC %s tried to use non-existent item objid %d.", pc.getName(), itemObjid));
+		    return;
+		}
+		
+		_log.info(String.format(
+		    "[ITEM_USE_DEBUG] PC:%s, Item:%s(%d), Loc:(%d, %d, %d), MapUsable:%b",
+		    pc.getName(),
+		    l1iteminstance.getLogName(),
+		    l1iteminstance.getItemId(),
+		    pc.getX(),
+		    pc.getY(),
+		    pc.getMapId(),
+		    pc.getMap().isUsableItem()
+		));
+
 		if (pc.isGhost()) {
 			return;
 		}
-		L1ItemInstance l1iteminstance = pc.getInventory().getItem(itemObjid);
-
 		if (l1iteminstance == null && pc.isDead()) {
 			return;
 		}
